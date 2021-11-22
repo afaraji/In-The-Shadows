@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour
 {
 	public PlayerData playerData;
+	public int totalLevels = 6;
 	void Start()
 	{
 		playerData = new PlayerData();
@@ -15,15 +17,42 @@ public class Manager : MonoBehaviour
 	{
 		
 	}
+
+	public void LoadLvlMenu(int unlockedLvl, int maxLvl)
+	{
+		SceneManager.LoadScene("LevelsMenu", LoadSceneMode.Additive);
+		// was here trying to lucng menu for test/normal mode
+		
+	}
+
+	public void PlayInTestMode()
+	{
+		Debug.Log("test Mode");
+	}
+
+	public void PlayInNormalMode()
+	{
+		Debug.Log("normal Mode");
+	}
+
+	public void OpenSettings()
+	{
+		Debug.Log("settings");
+	}
+
+	public void ExitGame()
+	{
+#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+#endif
+		Application.Quit();
+	}
 }
 
 public class PlayerData
 {
 	public bool isModeNormal = true;
 	public int currentLvL = 1;
-	public float generalSound = 0.5f;
-	public float musicVolume = 0.2f;
-	public float effectsVolume = 0.2f;
 	//float rotationSpeed = 0.5f;
 	//float moveSpeed = 0.5f;
 	public float rotationSpeed

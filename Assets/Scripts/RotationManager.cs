@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotationManager : MonoBehaviour
 {
-	[SerializeField] private float _rotSpeed;
+	[SerializeField] float _rotSpeed;
 	[SerializeField] float _moveFactor;
 	[SerializeField] float _maxZ = 0.8f;
 	[SerializeField] float _maxY = 0.5f;
@@ -22,8 +22,8 @@ public class RotationManager : MonoBehaviour
 	{
 		// rotSpeed = get rot speed from setting
 		// isAllowdVerticalRot = get it from setting/difficulty lvl
-		_moveFactor = manager.playerData.moveSpeed;
-		_rotSpeed = manager.playerData.rotationSpeed;
+		_moveFactor = 100f;
+		_rotSpeed = PlayerPrefs.GetFloat("RotationSpeed", 0);
 		_initialPos = transform.position;
 	}
 
@@ -91,4 +91,19 @@ public class RotationManager : MonoBehaviour
 			transform.rotation = Quaternion.AngleAxis(rotY, right) * transform.rotation;
 		}
 	}
+
+	private void Update()
+	{
+		
+	}
 }
+
+
+/*
+ * ************  PlayerPrefs content *************
+ * GeneralVolume
+ * SFX
+ * Music
+ * RotationSpeed
+ * UnlockedLvl
+ */

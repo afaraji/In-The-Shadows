@@ -801,8 +801,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1259611369}
-  - component: {fileID: 1259611370}
   - component: {fileID: 1259611371}
+  - component: {fileID: 1259611370}
   m_Layer: 0
   m_Name: MainObject
   m_TagString: Untagged
@@ -837,12 +837,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435425c80cc984a2eae56a3fe4dc5091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 1000
+  _rotSpeed: 0
   _moveFactor: 100
   _maxZ: 0.8
   _maxY: 0.5
-  _pos: {x: 0, y: 0, z: 0}
+  _tolerence: 0.5
   cam: {fileID: 1687258584}
+  _soloutionRot: {x: 0, y: 0, z: 0, w: 0}
   manager: {fileID: 0}
 --- !u!135 &1259611371
 SphereCollider:
