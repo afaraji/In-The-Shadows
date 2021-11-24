@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,9 +14,15 @@ public class RotationManager : MonoBehaviour
 	public Camera cam;
 	private Vector3 _initialPos;
 	public Quaternion _soloutionRot;
-	public Manager manager;
+	public Quaternion _currentRot;
 	
+	public bool isSolutionRot = false;
+	public bool setSolutionRot = false;
+	public bool allowSolution = false;
+	public float solDelta = 5f;
 	
+	public RectTransform imageChangeScale;
+	public PlaySceneManager manager;
 
 
 	void Start()
@@ -36,9 +43,12 @@ public class RotationManager : MonoBehaviour
 		 * 		if lvl == 2 :  horizontal + vertical rot allowed
 		 * 		else all allowed
 		 */
-		if (!manager.playerData.isModeNormal)
+		int mode = PlayerPrefs.GetInt("isNormalMode", -1);
+		if (mode == -1)
+			throw new System.Exception("Mode not set properly");
+		if (mode == 0)
 			return 3;
-		return (manager.playerData.currentLvL);
+		return (MyData.currentLvL);
 	}
 
 	public float SolutionProgress()
@@ -94,7 +104,46 @@ public class RotationManager : MonoBehaviour
 
 	private void Update()
 	{
+		if (!isSolutionRot)
+		{
+			if (setSolutionRot)
+			{
+				isSolutionRot = true;
+				setSolutionRot = false;
+				_soloutionRot = transform.rotation;
+			}
+			return;
+		}
+
+		_currentRot = transform.rotation;
+		//float progress = SolutionProgress();
+		//imageChangeScale.localScale = new Vector3(1, progress, 1);
+		if(CmpRot(_currentRot, _soloutionRot, solDelta) && allowSolution)
+		{
+			Debug.Log("Level Solved !");
+			manager.OnLevelSolved();
+		}
+	}
+
+	bool CmpRot(Quaternion rot1, Quaternion rot2, float delta)
+	{
+		bool x = false, y = false, z = false;
+		float tmp = Mathf.Abs(rot1.eulerAngles.x - rot2.eulerAngles.x);
+		tmp = tmp < 180 ? tmp : 360 - tmp;
+		if (tmp <= delta)
+			x = true;
+		tmp = Mathf.Abs(rot1.eulerAngles.y - rot2.eulerAngles.y);
+		tmp = tmp < 180 ? tmp : 360 - tmp;
+		if (tmp <= delta)
+			y = true;
+		tmp = Mathf.Abs(rot1.eulerAngles.z - rot2.eulerAngles.z);
+		tmp = tmp < 180 ? tmp : 360 - tmp;
+		if (tmp <= delta)
+			z = true;
 		
+		if (x && y && z)
+			return true;
+		return false;
 	}
 }
 
@@ -106,4 +155,6 @@ public class RotationManager : MonoBehaviour
  * Music
  * RotationSpeed
  * UnlockedLvl
+ * TotalLvls
+ * isNormalMode
  */
