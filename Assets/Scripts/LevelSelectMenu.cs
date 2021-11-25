@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSelectMenu : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class LevelSelectMenu : MonoBehaviour
             if (i <= maxLvl)
             {
                 btn.gameObject.SetActive(true);
+                
                 btn.Setup(i, GetLvlStars(i), unlockedLevel >= i);
             }
             else
@@ -38,6 +40,7 @@ public class LevelSelectMenu : MonoBehaviour
     public void OnLvlButtonPressed(int lvlIndex)
     {
         Debug.Log("Loading level: " + lvlIndex);
+        MyData.currentLvL = lvlIndex;
         SceneManager.LoadScene("Level_" + lvlIndex);
     }
 }

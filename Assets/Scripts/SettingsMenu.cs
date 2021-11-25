@@ -33,7 +33,7 @@ public class SettingsMenu : MonoBehaviour
         SFXVol.value = PlayerPrefs.GetFloat("SFX", 0);
 
         rotSpeed.value = PlayerPrefs.GetFloat("RotationSpeed", 0);
-        rotSpeedText.text = PlayerPrefs.GetFloat("RotationSpeed", 0).ToString("0.00");
+        rotSpeedText.text = (PlayerPrefs.GetFloat("RotationSpeed", 1000)/100).ToString("0");
         
     }
 
@@ -68,8 +68,8 @@ public class SettingsMenu : MonoBehaviour
     public void OnRotationSpeedChange(float value)
     {
         PlayerPrefs.SetFloat("RotationSpeed", value);
-        rotSpeedText.text = PlayerPrefs.GetFloat("RotationSpeed", 0).ToString("0.00");
-
+        rotSpeedText.text = (PlayerPrefs.GetFloat("RotationSpeed", 1000)/100).ToString("0");
+        MyData.rotationSpeed = value;
     }
 
     public void OnResoulutionChange(int resIndex)

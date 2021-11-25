@@ -10,9 +10,6 @@ public class Manager : MonoBehaviour
 	public GameObject settingMenu;
 	public LevelSelectMenu levelSelectMenu;
 	public int totalLevels = 6;
-	public int _unlockedLevel = 2;
-	public bool restAll = false;
-	
 	
 	void Start()
 	{
@@ -22,29 +19,24 @@ public class Manager : MonoBehaviour
 		PlayerPrefs.SetInt("TotalLvls", totalLevels);
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-		
-	}
 
 	public void PlayInTestMode()
 	{
-		PlayerPrefs.SetInt("isNormalMode", 0);
+		MyData.isModeNormal = false;
 		mainMenu.SetActive(false);
 		lvlMenu.SetActive(true);
 		settingMenu.SetActive(false);
 		levelSelectMenu.RefreshButtons(totalLevels, totalLevels);
+		
 	}
 
 	public void PlayInNormalMode()
 	{
-		PlayerPrefs.SetInt("isNormalMode", 1);
+		MyData.isModeNormal = true;
 		mainMenu.SetActive(false);
 		lvlMenu.SetActive(true);
 		settingMenu.SetActive(false);
-		//levelSelectMenu.RefreshButtons(PlayerPrefs.GetInt("UnlockedLvl", 1), totalLevels);
-		levelSelectMenu.RefreshButtons(_unlockedLevel, totalLevels);
+		levelSelectMenu.RefreshButtons(PlayerPrefs.GetInt("UnlockedLvl", 1), totalLevels);
 	}
 
 	public void OpenSettings()
@@ -56,12 +48,6 @@ public class Manager : MonoBehaviour
 
 	public void ExitGame()
 	{
-		if (restAll)
-		{
-			PlayerPrefs.DeleteAll();
-			restAll = false;
-			return;
-		}
 #if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
 #endif
@@ -70,13 +56,16 @@ public class Manager : MonoBehaviour
 
 	public void OnBackToMainMenu()
 	{
-		Debug.Log("back to main menu");
 		mainMenu.SetActive(true);
 		lvlMenu.SetActive(false);
 		settingMenu.SetActive(false);
+		SceneManager.LoadScene(0);
 	}
-	
-	
+
+	public void ClearData()
+	{
+		PlayerPrefs.DeleteAll();
+	}
 }
 
 /*public class PlayerData
@@ -105,5 +94,4 @@ public class Manager : MonoBehaviour
  * RotationSpeed
  * UnlockedLvl
  * TotalLvls
- * isNormalMode
  */

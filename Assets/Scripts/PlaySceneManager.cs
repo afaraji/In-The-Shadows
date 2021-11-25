@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public class PlaySceneManager : MonoBehaviour
 {
-    public int numberOfObjects = 1;
     public GameObject hintButton;
     public GameObject menuButton;
     public GameObject menuCanvas;
     public GameObject lvlSolvedCanvas;
     public GameObject settingMenuCanvas;
+    public GameObject hintCanvas;
+    
+    
     //public Image starsOnSolved;
 
     void Start()
@@ -21,9 +23,19 @@ public class PlaySceneManager : MonoBehaviour
         settingMenuCanvas.SetActive(false);
     }
 
+    IEnumerator ShowHint(string txt)
+    {
+        hintCanvas.SetActive(true);
+        hintCanvas.GetComponentInChildren<Text>().text = txt;
+        yield return new WaitForSeconds(3);
+        hintCanvas.SetActive(false);
+    }
+
     public void hntButtonPressed()
     {
         Debug.Log("show hint for : " + SceneManager.GetActiveScene().name);
+        string hintText = "test text";
+        StartCoroutine(ShowHint(hintText));
     }
 
     public void pauseButton()
@@ -33,11 +45,12 @@ public class PlaySceneManager : MonoBehaviour
         settingMenuCanvas.SetActive(false);
         hintButton.SetActive(false);
         menuButton.SetActive(false);
-        // pause game = 1
+        MyData.isGamePaused = true;
     }
     
     public void mainMenuButton()
     {
+        MyData.isGamePaused = false;
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
@@ -48,7 +61,7 @@ public class PlaySceneManager : MonoBehaviour
         settingMenuCanvas.SetActive(true);
         hintButton.SetActive(false);
         menuButton.SetActive(false);
-        // pause game = 1
+        MyData.isGamePaused = true;
     }
 
     public void continueButton()
@@ -58,7 +71,7 @@ public class PlaySceneManager : MonoBehaviour
         settingMenuCanvas.SetActive(false);
         hintButton.SetActive(true);
         menuButton.SetActive(true);
-        // pause game = 0
+        MyData.isGamePaused = false;
     }
 
     public void OnLevelSolved()
@@ -68,7 +81,7 @@ public class PlaySceneManager : MonoBehaviour
         settingMenuCanvas.SetActive(false);
         hintButton.SetActive(false);
         menuButton.SetActive(false);
-        
+        MyData.isGamePaused = true;
         // if last level disable next lvl button
         
     }
@@ -84,12 +97,14 @@ public class PlaySceneManager : MonoBehaviour
 
     public void nextLvlButton()
     {
+        MyData.isGamePaused = false;
         int thisScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(thisScene + 1, LoadSceneMode.Single);
     }
 
     public void retryLvlButton()
     {
+        MyData.isGamePaused = false;
         int thisScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(thisScene, LoadSceneMode.Single);
     }

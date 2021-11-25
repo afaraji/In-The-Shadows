@@ -21,11 +21,14 @@ public class LevelSelectButton : MonoBehaviour
         {
             GetComponent<Button>().interactable = false;
             levelstars.SetStars(0);
+            //Debug.Log($"lvelselectbutton:({level}) is not open ---");
         }
         else
         {
             levelstars.SetStars(stars);
-            GetComponent<Button>().interactable = true;
+            var btn = GetComponent<Button>();
+            btn.interactable = true;
+            //Debug.Log($"lvelselectbutton:({level}) is open +++ {btn.IsInteractable()} | {btn.isActiveAndEnabled}");
         }
     }
 }
