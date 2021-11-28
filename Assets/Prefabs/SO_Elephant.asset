@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: SO_Elephant
   m_EditorClassIdentifier: 
   name: Elephant
-  startingPos: {x: 0, y: 0, z: 0}
-  startingRot: {x: 0, y: 0, z: 0}
-  solvedPos: {x: 0, y: 0, z: 0}
-  solvedRot: {x: 0, y: 0, z: 0}
+  startingPos: {x: 1.45, y: 1.45, z: 0.4}
+  startingRot: {x: 0, y: 0.50000006, z: 0, w: -0.8660254}
+  solvedPos: {x: 1.45, y: 1.45, z: 0.4}
+  solvedRot: {x: 0, y: 0, z: 0, w: 1}
   hint: biggest mammal on earth
+  freedom: 1
   model: {fileID: 2448408758198597346, guid: 9b2019a7613b94bbd9e2929faccff161, type: 3}

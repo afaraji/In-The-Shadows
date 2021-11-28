@@ -10,19 +10,15 @@ public class RotationManager : MonoBehaviour
 	[SerializeField] float _moveFactor;
 	[SerializeField] float _maxZ = 0.8f;
 	[SerializeField] float _maxY = 0.5f;
-	[SerializeField] float _tolerence = 0.5f;
 	
 	//public Camera cam;
-	public Vector3 _initialPos;
-	public Quaternion _soloutionRot = Quaternion.identity;
 	public Quaternion _currentRot;
 
 	public float solutionPorg;
+	public float progressBarValue;
 	
-	public float solDelta = 1f;
 	
-	public RectTransform imageChangeScale;
-	public PlaySceneManager manager;
+	//public RectTransform imageChangeScale;
 
 	public ModelData model;
 
@@ -30,29 +26,17 @@ public class RotationManager : MonoBehaviour
 	{
 		// rotSpeed = get rot speed from setting
 		// isAllowdVerticalRot = get it from setting/difficulty lvl
-		if(GetControlFreedom() > 2)
-			transform.Translate(0, Random.Range(-0.5f, 0.5f), Random.Range(-0.8f, 0.8f));
+		transform.position = model.startingPos;
+		transform.rotation = model.startingRot;
 		_moveFactor = MyData.moveSpeed;
 		MyData.rotationSpeed = PlayerPrefs.GetFloat("RotationSpeed", 1000);
-		transform.Rotate(Vector3.up, Random.Range(50f, 360f));
-		if(GetControlFreedom() > 1)
-			transform.Rotate(Vector3.right, Random.Range(50f, 360f));
-		_initialPos = transform.position;
 		
 		MyData.isGamePaused = false;
 	}
 
 	private int GetControlFreedom()
 	{
-		/*
-		 * if test mode : all mvt and rot allowed
-		 * else
-		 * 		if lvl == 1 :  horizontal rot allowed
-		 * 		if lvl == 2 :  horizontal + vertical rot allowed
-		 * 		else all allowed
-		 */
-		//return (MyData.currentLvL);
-		return 3;
+		return (model.freedom);
 	}
 
 	public float SolutionProgress(Quaternion R, Vector3 P)
@@ -65,8 +49,10 @@ public class RotationManager : MonoBehaviour
 		
 		if (GetControlFreedom() == 1)
 		{
-			imageChangeScale.transform.localScale = new Vector3(1, Mathf.InverseLerp(0, 180, y), 1);
-			return y;
+			progressBarValue = Mathf.InverseLerp(0, 180, y);
+			//imageChangeScale.transform.localScale = new Vector3(1, progressBarValue, 1);
+			//return y;
+			return progressBarValue;
 		}
 
 		x = R.eulerAngles.x;
@@ -78,14 +64,18 @@ public class RotationManager : MonoBehaviour
 		if (GetControlFreedom() == 2)
 		{
 			tmp = Mathf.InverseLerp(0, 180, x) + Mathf.InverseLerp(0, 180, y) + Mathf.InverseLerp(0, 180, z);
-			imageChangeScale.transform.localScale = new Vector3(1, tmp / 3, 1);
-			return x + y + z;
+			progressBarValue = tmp / 3;
+			return progressBarValue;
+			//imageChangeScale.transform.localScale = new Vector3(1, progressBarValue, 1);
+			//return x + y + z;
 		}
 
-		dist = Vector3.Distance(_initialPos, P);
+		dist = Vector3.Distance(model.solvedPos, P);
 		tmp = Mathf.InverseLerp(0, 180, x) + Mathf.InverseLerp(0, 180, y) + Mathf.InverseLerp(0, 180, z) + Mathf.InverseLerp(0, 0.5f, dist);
-		imageChangeScale.transform.localScale = new Vector3(1, tmp / 4, 1);
-		return x + y + z + dist;
+		progressBarValue = tmp / 4;
+		return progressBarValue;
+		//imageChangeScale.transform.localScale = new Vector3(1, progressBarValue, 1);
+		//return x + y + z + dist;
 	}
 
 
@@ -104,14 +94,14 @@ public class RotationManager : MonoBehaviour
 			Vector3 up = Vector3.Cross(Vector3.left, right);
 			_pos = transform.position + right * (rotX/_moveFactor) + up * (rotY/_moveFactor);
 
-			if (_pos.z > _maxZ + _initialPos.z)
-				_pos.z = _maxZ + _initialPos.z;
-			if (_pos.z < -_maxZ + _initialPos.z)
-				_pos.z = -_maxZ + _initialPos.z;
-			if (_pos.y > _maxY + _initialPos.y)
-				_pos.y = _maxY + _initialPos.y;
-			if (_pos.y < -_maxY + _initialPos.y)
-				_pos.y = -_maxY + _initialPos.y;
+			if (_pos.z > _maxZ + model.solvedPos.z)
+				_pos.z = _maxZ + model.solvedPos.z;
+			if (_pos.z < -_maxZ + model.solvedPos.z)
+				_pos.z = -_maxZ + model.solvedPos.z;
+			if (_pos.y > _maxY + model.solvedPos.y)
+				_pos.y = _maxY + model.solvedPos.y;
+			if (_pos.y < -_maxY + model.solvedPos.y)
+				_pos.y = -_maxY + model.solvedPos.y;
 			transform.position = _pos;
 		}
 		else if (GetControlFreedom() > 1 && Input.GetKey(KeyCode.LeftControl))
@@ -141,15 +131,11 @@ public class RotationManager : MonoBehaviour
 		//float progress = SolutionProgress();
 		//imageChangeScale.localScale = new Vector3(1, progress, 1);
 		solutionPorg = SolutionProgress(_currentRot, transform.position);
-		
-		if(CmpRot(_currentRot, _soloutionRot, solDelta))
-		{
-			Debug.Log("Level Solved !");
-			manager.OnLevelSolved();
-		}
 	}
 
-	bool CmpRot(Quaternion rot1, Quaternion rot2, float delta)
+}
+
+	/*bool CmpRot(Quaternion rot1, Quaternion rot2, float delta)
 	{
 		bool x = false, y = false, z = false;
 		return false;
@@ -173,9 +159,7 @@ public class RotationManager : MonoBehaviour
 		if (x && y && z)
 			return true;
 		return false;
-	}
-}
-
+	}*/
 
 /*
  * ************  PlayerPrefs content *************

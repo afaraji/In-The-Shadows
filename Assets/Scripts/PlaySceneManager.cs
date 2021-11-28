@@ -12,6 +12,10 @@ public class PlaySceneManager : MonoBehaviour
     public GameObject lvlSolvedCanvas;
     public GameObject settingMenuCanvas;
     public GameObject hintCanvas;
+    public ModelData[] model;
+    public RotationManager[] models;
+    public RectTransform imageChangeScale;
+    public float difficulty;
     
     
     //public Image starsOnSolved;
@@ -21,6 +25,20 @@ public class PlaySceneManager : MonoBehaviour
         menuCanvas.SetActive(false);
         lvlSolvedCanvas.SetActive(false);
         settingMenuCanvas.SetActive(false);
+    }
+
+    private void LateUpdate()
+    {
+        float totalProgress = 0;
+        foreach (var m in models)
+        {
+            totalProgress += m.solutionPorg;
+        }
+
+        totalProgress /= models.Length;
+        imageChangeScale.transform.localScale = new Vector3(1, totalProgress, 1);
+        if (totalProgress < difficulty / 100)
+            OnLevelSolved();
     }
 
     IEnumerator ShowHint(string txt)
@@ -33,9 +51,8 @@ public class PlaySceneManager : MonoBehaviour
 
     public void hntButtonPressed()
     {
-        Debug.Log("show hint for : " + SceneManager.GetActiveScene().name);
-        string hintText = "test text";
-        StartCoroutine(ShowHint(hintText));
+        Debug.Log("show hint for : " + model[0].name);
+        StartCoroutine(ShowHint(model[0].hint));
     }
 
     public void pauseButton()
@@ -83,6 +100,7 @@ public class PlaySceneManager : MonoBehaviour
         menuButton.SetActive(false);
         MyData.isGamePaused = true;
         // if last level disable next lvl button
+        // update playerprefs
         
     }
 

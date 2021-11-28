@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: SO_TeaPot
   m_EditorClassIdentifier: 
   name: Tea Pot
-  startingPos: {x: 0, y: 0, z: 0}
-  startingRot: {x: 0, y: 0, z: 0}
-  solvedPos: {x: 0, y: 0, z: 0}
-  solvedRot: {x: 0, y: 0, z: 0}
   hint: 'Ataay 7louu '
+  freedom: 2
+  startingPos: {x: 1.45, y: 1.45, z: 0.4}
+  solvedPos: {x: 1.45, y: 1.45, z: 0.4}
+  startingRot: {x: -0.8916615, y: 0.12815192, z: 0.25245476, w: 0.35324693}
+  solvedRot: {x: 0, y: 0, z: 0, w: 0}
   model: {fileID: 6962401775399461986, guid: 641e845b4dc9240519fd99ddd1eebb7d, type: 3}
