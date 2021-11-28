@@ -24,6 +24,7 @@ public class RotationManager : MonoBehaviour
 	public RectTransform imageChangeScale;
 	public PlaySceneManager manager;
 
+	public ModelData model;
 
 	void Start()
 	{

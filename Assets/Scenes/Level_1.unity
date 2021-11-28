@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.5050523, g: 0.5682982, b: 0.6456726, a: 1}
+  m_IndirectSpecularColor: {r: 0.5050524, g: 0.5682982, b: 0.6456729, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5266,16 +5266,14 @@ MonoBehaviour:
   _maxZ: 0.8
   _maxY: 0.5
   _tolerence: 0.5
-  cam: {fileID: 1687258584}
+  _initialPos: {x: 0, y: 0, z: 0}
   _soloutionRot: {x: 0, y: 0, z: 0, w: 0}
   _currentRot: {x: 0, y: 0, z: 0, w: 0}
-  isSolutionRot: 0
-  setSolutionRot: 0
-  allowSolution: 0
+  solutionPorg: 0
   solDelta: 10
-  isGamePaused: 0
   imageChangeScale: {fileID: 1453937190}
   manager: {fileID: 803031897}
+  model: {fileID: 11400000, guid: 96a77d3faeec6f04c97ac05e6b4c453b, type: 2}
 --- !u!135 &1259611371
 SphereCollider:
   m_ObjectHideFlags: 0
