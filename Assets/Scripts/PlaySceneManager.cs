@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,33 +13,59 @@ public class PlaySceneManager : MonoBehaviour
     public GameObject lvlSolvedCanvas;
     public GameObject settingMenuCanvas;
     public GameObject hintCanvas;
+    public GameObject nextLevelButton;
     public ModelData[] model;
     public RotationManager[] models;
     public RectTransform imageChangeScale;
     public float difficulty;
+    public float totalProgress;
+    public Image starsOnSolved;
+    public Sprite[] stars;
     
-    
-    //public Image starsOnSolved;
+    private float threeStarsTime = 10f;
+    private float twoStarsTime = 15f;
+    private float startTime;
+
 
     void Start()
     {
         menuCanvas.SetActive(false);
         lvlSolvedCanvas.SetActive(false);
         settingMenuCanvas.SetActive(false);
+        startTime = Time.time;
     }
 
+    
     private void LateUpdate()
     {
-        float totalProgress = 0;
+        totalProgress = 0;
         foreach (var m in models)
         {
             totalProgress += m.solutionPorg;
         }
-
+        Debug.Log($"total prgress: {totalProgress} for {models.Length} objects");
         totalProgress /= models.Length;
         imageChangeScale.transform.localScale = new Vector3(1, totalProgress, 1);
         if (totalProgress < difficulty / 100)
-            OnLevelSolved();
+        {
+            int numOfStars;
+            if (Time.time - startTime <= threeStarsTime)//3stars
+            {
+                starsOnSolved.sprite = stars[2];
+                numOfStars = 3;
+            }
+            else if (Time.time - startTime <= twoStarsTime)//2stars
+            {
+                starsOnSolved.sprite = stars[1];
+                numOfStars = 2;
+            }
+            else//1star
+            {
+                starsOnSolved.sprite = stars[0];
+                numOfStars = 1;
+            }
+            OnLevelSolved(numOfStars);
+        }
     }
 
     IEnumerator ShowHint(string txt)
@@ -91,7 +118,7 @@ public class PlaySceneManager : MonoBehaviour
         MyData.isGamePaused = false;
     }
 
-    public void OnLevelSolved()
+    public void OnLevelSolved(int numOfStars)
     {
         menuCanvas.SetActive(false);
         lvlSolvedCanvas.SetActive(true);
@@ -99,9 +126,16 @@ public class PlaySceneManager : MonoBehaviour
         hintButton.SetActive(false);
         menuButton.SetActive(false);
         MyData.isGamePaused = true;
+
         // if last level disable next lvl button
+        int lvls = PlayerPrefs.GetInt("TotalLvls");
+        if (lvls == MyData.currentLvL)
+            nextLevelButton.SetActive(false);
+        else
+            PlayerPrefs.SetInt("UnlockedLvl", MyData.currentLvL + 1);
+        MyData.SetLvlStars(MyData.currentLvL, numOfStars);
         // update playerprefs
-        
+
     }
 
     public void OnBackFromSettingButton()
@@ -117,6 +151,7 @@ public class PlaySceneManager : MonoBehaviour
     {
         MyData.isGamePaused = false;
         int thisScene = SceneManager.GetActiveScene().buildIndex;
+        MyData.currentLvL = thisScene + 1;
         SceneManager.LoadScene(thisScene + 1, LoadSceneMode.Single);
     }
 

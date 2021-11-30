@@ -80,7 +80,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 92394193a853f41fb80ca157ad137c0b,
         type: 3}
       propertyPath: m_Name
-      value: _puzzle_globe-earth
+      value: _puzzle_globe-earth Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 92394193a853f41fb80ca157ad137c0b,
         type: 3}

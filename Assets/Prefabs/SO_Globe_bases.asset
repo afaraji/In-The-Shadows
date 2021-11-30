@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b360ceb5532c42dca7f711b5e7c9b4f, type: 3}
-  m_Name: SO_Glob_Base
+  m_Name: SO_Globe_bases
   m_EditorClassIdentifier: 
-  name: Glob base
-  startingPos: {x: 0, y: 0, z: 0}
-  startingRot: {x: 0, y: 0, z: 0}
-  solvedPos: {x: 0, y: 0, z: 0}
-  solvedRot: {x: 0, y: 0, z: 0}
+  name: Glob Base
   hint: Tool used in geography
-  model: {fileID: 6173711364843281579, guid: a29e57375009d412db34e740094f1942, type: 3}
+  freedom: 3
+  startingPos: {x: 1.45, y: 1.8, z: 0.8}
+  solvedPos: {x: 1.45, y: 1.6, z: 0.5}
+  startingRot: {x: 0, y: 0, z: 0, w: 1}
+  solvedRot: {x: -0.5476234, y: 0.37429893, z: 0.43534744, w: 0.60867184}
+  model: {fileID: 2448408758198597346, guid: 9b2019a7613b94bbd9e2929faccff161, type: 3}

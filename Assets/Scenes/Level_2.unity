@@ -2996,12 +2996,19 @@ MonoBehaviour:
   lvlSolvedCanvas: {fileID: 1504399316}
   settingMenuCanvas: {fileID: 1041510460}
   hintCanvas: {fileID: 534438123}
+  nextLevelButton: {fileID: 1994255250}
   model:
   - {fileID: 11400000, guid: 9cb0e7670fd3cbe4ebab007d74377f79, type: 2}
   models:
   - {fileID: 1259611370}
   imageChangeScale: {fileID: 1453937190}
-  difficulty: 1
+  difficulty: 2
+  totalProgress: 0
+  starsOnSolved: {fileID: 1862968380}
+  stars:
+  - {fileID: 21300000, guid: 6d48f24c772a44c52b0077ceb1f0d7ca, type: 3}
+  - {fileID: 21300000, guid: b7283409ed38b4aae8becddfa4245c16, type: 3}
+  - {fileID: 21300000, guid: ee5fd52f3d97d4c0a90addfa042ad329, type: 3}
 --- !u!4 &803031898
 Transform:
   m_ObjectHideFlags: 0

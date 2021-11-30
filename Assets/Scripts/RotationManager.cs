@@ -16,11 +16,9 @@ public class RotationManager : MonoBehaviour
 
 	public float solutionPorg;
 	public float progressBarValue;
-	
-	
-	//public RectTransform imageChangeScale;
 
 	public ModelData model;
+
 
 	void Start()
 	{
@@ -41,6 +39,23 @@ public class RotationManager : MonoBehaviour
 
 	public float SolutionProgress(Quaternion R, Vector3 P)
 	{
+		float lol = Quaternion.Angle(R, model.solvedRot);
+		float _distance = Vector3.Distance(model.solvedPos, P);
+		
+		float _angle = Mathf.InverseLerp(0, 180, lol);
+		_distance = Mathf.InverseLerp(0, 0.5f, _distance);
+		Debug.Log($"this object ({name}) ______________  angle: {lol} | % :{_angle}");
+		if (GetControlFreedom() < 3)
+		{
+			progressBarValue = _angle;
+		}
+		else
+		{
+			progressBarValue = (_angle + _distance) / 2;
+		}
+
+		return progressBarValue;
+		/*
 		float x, y, z, dist, tmp;
 		
 		y = R.eulerAngles.y;
@@ -50,8 +65,6 @@ public class RotationManager : MonoBehaviour
 		if (GetControlFreedom() == 1)
 		{
 			progressBarValue = Mathf.InverseLerp(0, 180, y);
-			//imageChangeScale.transform.localScale = new Vector3(1, progressBarValue, 1);
-			//return y;
 			return progressBarValue;
 		}
 
@@ -66,16 +79,13 @@ public class RotationManager : MonoBehaviour
 			tmp = Mathf.InverseLerp(0, 180, x) + Mathf.InverseLerp(0, 180, y) + Mathf.InverseLerp(0, 180, z);
 			progressBarValue = tmp / 3;
 			return progressBarValue;
-			//imageChangeScale.transform.localScale = new Vector3(1, progressBarValue, 1);
-			//return x + y + z;
 		}
 
 		dist = Vector3.Distance(model.solvedPos, P);
 		tmp = Mathf.InverseLerp(0, 180, x) + Mathf.InverseLerp(0, 180, y) + Mathf.InverseLerp(0, 180, z) + Mathf.InverseLerp(0, 0.5f, dist);
 		progressBarValue = tmp / 4;
 		return progressBarValue;
-		//imageChangeScale.transform.localScale = new Vector3(1, progressBarValue, 1);
-		//return x + y + z + dist;
+		*/
 	}
 
 
@@ -131,6 +141,7 @@ public class RotationManager : MonoBehaviour
 		//float progress = SolutionProgress();
 		//imageChangeScale.localScale = new Vector3(1, progress, 1);
 		solutionPorg = SolutionProgress(_currentRot, transform.position);
+		
 	}
 
 }

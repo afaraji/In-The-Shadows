@@ -12969,7 +12969,7 @@ MonoBehaviour:
   lvlMenu: {fileID: 1630379977}
   settingMenu: {fileID: 1254418825}
   levelSelectMenu: {fileID: 1442427620}
-  totalLevels: 8
+  totalLevels: 3
 --- !u!4 &2140516521
 Transform:
   m_ObjectHideFlags: 0
