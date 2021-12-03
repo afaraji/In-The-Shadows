@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b360ceb5532c42dca7f711b5e7c9b4f, type: 3}
+  m_Name: SO_Aireplane_3
+  m_EditorClassIdentifier: 
+  name: Aireplane
+  hint: Under the stars and above the oceans
+  freedom: 3
+  startingPos: {x: 1.4584, y: 1.45, z: 0.6}
+  solvedPos: {x: 1.4584, y: 1.7, z: 0.4}
+  startingRot: {x: 0, y: 0, z: 0, w: 0}
+  solvedRot: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
+  model: {fileID: 2396806643252402006, guid: d07eec4821d554d20bb1a5cba791203f, type: 3}

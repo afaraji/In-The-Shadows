@@ -44,7 +44,6 @@ public class RotationManager : MonoBehaviour
 		
 		float _angle = Mathf.InverseLerp(0, 180, lol);
 		_distance = Mathf.InverseLerp(0, 0.5f, _distance);
-		Debug.Log($"this object ({name}) ______________  angle: {lol} | % :{_angle}");
 		if (GetControlFreedom() < 3)
 		{
 			progressBarValue = _angle;

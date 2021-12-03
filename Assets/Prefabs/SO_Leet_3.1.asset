@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b360ceb5532c42dca7f711b5e7c9b4f, type: 3}
+  m_Name: SO_Leet_3.1
+  m_EditorClassIdentifier: 
+  name: 1337
+  hint: A School with most toxic Discord
+  freedom: 3
+  startingPos: {x: 1.45, y: 1.8, z: 0.8}
+  solvedPos: {x: 1.45, y: 1.5, z: 0.34}
+  startingRot: {x: 0, y: 0, z: 0, w: 0}
+  solvedRot: {x: 0.07699677, y: -0.69751674, z: -0.7010854, w: -0.12657431}
+  model: {fileID: 4058873766079345086, guid: 7d084a7f7bda748619a7f49ecec61c71, type: 3}

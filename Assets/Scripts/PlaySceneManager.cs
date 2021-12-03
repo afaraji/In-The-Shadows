@@ -22,9 +22,10 @@ public class PlaySceneManager : MonoBehaviour
     public Image starsOnSolved;
     public Sprite[] stars;
     
-    private float threeStarsTime = 10f;
-    private float twoStarsTime = 15f;
+    private float threeStarsTime = 30f;
+    private float twoStarsTime = 60f;
     private float startTime;
+    private bool levelSolved = false;
 
 
     void Start()
@@ -38,16 +39,19 @@ public class PlaySceneManager : MonoBehaviour
     
     private void LateUpdate()
     {
+        if (levelSolved)
+            return;
         totalProgress = 0;
         foreach (var m in models)
         {
             totalProgress += m.solutionPorg;
         }
-        Debug.Log($"total prgress: {totalProgress} for {models.Length} objects");
+   //     Debug.Log($"total prgress: {totalProgress} for {models.Length} objects");
         totalProgress /= models.Length;
         imageChangeScale.transform.localScale = new Vector3(1, totalProgress, 1);
         if (totalProgress < difficulty / 100)
         {
+            levelSolved = true;
             int numOfStars;
             if (Time.time - startTime <= threeStarsTime)//3stars
             {
@@ -79,11 +83,13 @@ public class PlaySceneManager : MonoBehaviour
     public void hntButtonPressed()
     {
         Debug.Log("show hint for : " + model[0].name);
+        AudioManager.audioManager.PlayClick();
         StartCoroutine(ShowHint(model[0].hint));
     }
 
     public void pauseButton()
     {
+        AudioManager.audioManager.PlayClick();
         menuCanvas.SetActive(true);
         lvlSolvedCanvas.SetActive(false);
         settingMenuCanvas.SetActive(false);
@@ -94,12 +100,14 @@ public class PlaySceneManager : MonoBehaviour
     
     public void mainMenuButton()
     {
+        AudioManager.audioManager.PlayClick();
         MyData.isGamePaused = false;
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public void settingButton()
     {
+        AudioManager.audioManager.PlayClick();
         menuCanvas.SetActive(false);
         lvlSolvedCanvas.SetActive(false);
         settingMenuCanvas.SetActive(true);
@@ -110,6 +118,7 @@ public class PlaySceneManager : MonoBehaviour
 
     public void continueButton()
     {
+        AudioManager.audioManager.PlayClick();
         menuCanvas.SetActive(false);
         lvlSolvedCanvas.SetActive(false);
         settingMenuCanvas.SetActive(false);
@@ -120,6 +129,8 @@ public class PlaySceneManager : MonoBehaviour
 
     public void OnLevelSolved(int numOfStars)
     {
+        bool musicIsPlaying = AudioManager.audioManager.music.isPlaying;
+        AudioManager.audioManager.PlayMusic(1);
         menuCanvas.SetActive(false);
         lvlSolvedCanvas.SetActive(true);
         settingMenuCanvas.SetActive(false);
@@ -131,15 +142,26 @@ public class PlaySceneManager : MonoBehaviour
         int lvls = PlayerPrefs.GetInt("TotalLvls");
         if (lvls == MyData.currentLvL)
             nextLevelButton.SetActive(false);
-        else
+        else if (MyData.isModeNormal)
+        {
             PlayerPrefs.SetInt("UnlockedLvl", MyData.currentLvL + 1);
-        MyData.SetLvlStars(MyData.currentLvL, numOfStars);
+            MyData.SetLvlStars(MyData.currentLvL, numOfStars);
+            if (MyData.currentLvL < lvls)
+                MyData.lastLevelUnlocked = MyData.currentLvL + 1;
+        }
+        else
+        {
+            MyData.lastLevelUnlocked = 0;
+        }
+        if (musicIsPlaying)
+            AudioManager.audioManager.PlayMusic(0);
         // update playerprefs
 
     }
 
     public void OnBackFromSettingButton()
     {
+        AudioManager.audioManager.PlayClick();
         menuCanvas.SetActive(true);
         lvlSolvedCanvas.SetActive(false);
         settingMenuCanvas.SetActive(false);
@@ -149,6 +171,7 @@ public class PlaySceneManager : MonoBehaviour
 
     public void nextLvlButton()
     {
+        AudioManager.audioManager.PlayClick();
         MyData.isGamePaused = false;
         int thisScene = SceneManager.GetActiveScene().buildIndex;
         MyData.currentLvL = thisScene + 1;
@@ -157,6 +180,7 @@ public class PlaySceneManager : MonoBehaviour
 
     public void retryLvlButton()
     {
+        AudioManager.audioManager.PlayClick();
         MyData.isGamePaused = false;
         int thisScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(thisScene, LoadSceneMode.Single);
@@ -164,3 +188,6 @@ public class PlaySceneManager : MonoBehaviour
     
     
 }
+
+
+// need to add sound to main menu and add music

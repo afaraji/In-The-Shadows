@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b360ceb5532c42dca7f711b5e7c9b4f, type: 3}
+  m_Name: SO_Camel
+  m_EditorClassIdentifier: 
+  name: Camel
+  hint: The ship of the desert
+  freedom: 2
+  startingPos: {x: 1.45, y: 1.45, z: 0.4}
+  solvedPos: {x: 1.45, y: 1.45, z: 0.4}
+  startingRot: {x: -0.8916615, y: 0.12815192, z: 0.25245476, w: 0.35324693}
+  solvedRot: {x: 0, y: 0, z: 0, w: 1}
+  model: {fileID: 3098025642765135019, guid: eea091d70de344c97b3495b6ca6fc303, type: 3}

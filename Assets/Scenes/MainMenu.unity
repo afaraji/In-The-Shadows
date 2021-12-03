@@ -232,6 +232,250 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28905738}
   m_CullTransparentMesh: 0
+--- !u!1 &36624685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 36624689}
+  - component: {fileID: 36624688}
+  - component: {fileID: 36624687}
+  - component: {fileID: 36624686}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &36624686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36624685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187e99f7d561e4f8b980134f898832eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music: {fileID: 36624687}
+  gameMusic: {fileID: 8300000, guid: 17f7a5ed1d2f54d6f9eea3d35f287343, type: 3}
+  lvlSolvedMusic: {fileID: 8300000, guid: e096bbb1f82ec46639c87800e4a30343, type: 3}
+  newLvlUnlockedMusic: {fileID: 8300000, guid: 0fbeac9f69559460ea8f2a2e3e78021c, type: 3}
+  click: {fileID: 36624688}
+--- !u!82 &36624687
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36624685}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3679938460186631233, guid: d7c72005464e2314389b2f21faf6648e,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 17f7a5ed1d2f54d6f9eea3d35f287343, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &36624688
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36624685}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -3429677898121265307, guid: d7c72005464e2314389b2f21faf6648e,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 7eb18bc80b8094daca2086b136bd1d39, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &36624689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36624685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2567.8135, y: 1123.7257, z: 463.22516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &106438380
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,6 +719,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &293143941
 Animator:
   serializedVersion: 3
@@ -571,6 +817,17 @@ MonoBehaviour:
           m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &293143944
@@ -2436,6 +2693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &665765555
 Animator:
   serializedVersion: 3
@@ -2532,6 +2791,17 @@ MonoBehaviour:
           m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &665765558
@@ -3033,6 +3303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &757222178
 Animator:
   serializedVersion: 3
@@ -3129,6 +3401,17 @@ MonoBehaviour:
           m_IntArgument: 15
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &757222181
@@ -3750,6 +4033,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &833884156
 Animator:
   serializedVersion: 3
@@ -3846,6 +4131,17 @@ MonoBehaviour:
           m_IntArgument: 16
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &833884159
@@ -4093,6 +4389,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &857442985
 Animator:
   serializedVersion: 3
@@ -4189,6 +4487,17 @@ MonoBehaviour:
           m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &857442988
@@ -4379,6 +4688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &863093251
 Animator:
   serializedVersion: 3
@@ -4475,6 +4786,17 @@ MonoBehaviour:
           m_IntArgument: 8
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &863093254
@@ -6495,6 +6817,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1234174442
 Animator:
   serializedVersion: 3
@@ -6591,6 +6915,17 @@ MonoBehaviour:
           m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1234174445
@@ -7036,6 +7371,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1319929281
 Animator:
   serializedVersion: 3
@@ -7132,6 +7469,17 @@ MonoBehaviour:
           m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1319929284
@@ -7573,6 +7921,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1376589503
 Animator:
   serializedVersion: 3
@@ -7671,6 +8021,17 @@ MonoBehaviour:
           m_StringArgument: qwerty
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1376589506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7765,6 +8126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1383001108
 Animator:
   serializedVersion: 3
@@ -7861,6 +8224,17 @@ MonoBehaviour:
           m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1383001111
@@ -8309,6 +8683,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1401933795
 Animator:
   serializedVersion: 3
@@ -8405,6 +8781,17 @@ MonoBehaviour:
           m_IntArgument: 14
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1401933798
@@ -8964,6 +9351,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1505601575
 Animator:
   serializedVersion: 3
@@ -9060,6 +9449,17 @@ MonoBehaviour:
           m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1505601578
@@ -9279,6 +9679,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1510948222
 Animator:
   serializedVersion: 3
@@ -9375,6 +9777,17 @@ MonoBehaviour:
           m_IntArgument: 7
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1510948225
@@ -9696,6 +10109,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1598944489
 Animator:
   serializedVersion: 3
@@ -9792,6 +10207,17 @@ MonoBehaviour:
           m_IntArgument: 17
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1598944492
@@ -10706,6 +11132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1738756622
 Animator:
   serializedVersion: 3
@@ -10804,6 +11232,17 @@ MonoBehaviour:
           m_StringArgument: qwerty
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1738756625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10897,6 +11336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1739848467
 Animator:
   serializedVersion: 3
@@ -10993,6 +11434,17 @@ MonoBehaviour:
           m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1739848470
@@ -11440,6 +11892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1833166149
 Animator:
   serializedVersion: 3
@@ -11536,6 +11990,17 @@ MonoBehaviour:
           m_IntArgument: 11
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1833166152
@@ -11841,6 +12306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelStarsPrefab: {fileID: 7584812832261701459, guid: 413cd77b33cfc4968855e5916e00b167,
     type: 3}
+  celebration: {fileID: 0}
+  clickSound: {fileID: 0}
 --- !u!95 &1890798655
 Animator:
   serializedVersion: 3
@@ -11937,6 +12404,17 @@ MonoBehaviour:
           m_IntArgument: 18
           m_FloatArgument: 0
           m_StringArgument: qwerty
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1890798658
@@ -12969,7 +13447,10 @@ MonoBehaviour:
   lvlMenu: {fileID: 1630379977}
   settingMenu: {fileID: 1254418825}
   levelSelectMenu: {fileID: 1442427620}
-  totalLevels: 3
+  buttonSound: {fileID: 2912205429217031002, guid: e019a09d0ac444ad4bb5a1b4f0c87761,
+    type: 3}
+  music: {fileID: 1786473145401783241, guid: 2f55424fac2c4417f934750abad6fefa, type: 3}
+  totalLevels: 6
 --- !u!4 &2140516521
 Transform:
   m_ObjectHideFlags: 0

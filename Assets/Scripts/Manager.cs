@@ -15,13 +15,20 @@ public class Manager : MonoBehaviour
 	{
 		mainMenu.SetActive(true);
 		lvlMenu.SetActive(false);
-		settingMenu.SetActive(false);
+		settingMenu.SetActive(true);
 		PlayerPrefs.SetInt("TotalLvls", totalLevels);
+		
+		//DontDestroyOnLoad(music);
+		//DontDestroyOnLoad(buttonSound);
+		settingMenu.SetActive(false);
 	}
+
+	
 
 
 	public void PlayInTestMode()
 	{
+		AudioManager.audioManager.PlayClick();
 		MyData.isModeNormal = false;
 		mainMenu.SetActive(false);
 		lvlMenu.SetActive(true);
@@ -32,6 +39,7 @@ public class Manager : MonoBehaviour
 
 	public void PlayInNormalMode()
 	{
+		AudioManager.audioManager.PlayClick();
 		MyData.isModeNormal = true;
 		mainMenu.SetActive(false);
 		lvlMenu.SetActive(true);
@@ -41,6 +49,7 @@ public class Manager : MonoBehaviour
 
 	public void OpenSettings()
 	{
+		AudioManager.audioManager.PlayClick();
 		mainMenu.SetActive(false);
 		lvlMenu.SetActive(false);
 		settingMenu.SetActive(true);
@@ -48,6 +57,7 @@ public class Manager : MonoBehaviour
 
 	public void ExitGame()
 	{
+		AudioManager.audioManager.PlayClick();
 #if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
 #endif
@@ -56,6 +66,7 @@ public class Manager : MonoBehaviour
 
 	public void OnBackToMainMenu()
 	{
+		AudioManager.audioManager.PlayClick();
 		mainMenu.SetActive(true);
 		lvlMenu.SetActive(false);
 		settingMenu.SetActive(false);
@@ -64,6 +75,7 @@ public class Manager : MonoBehaviour
 
 	public void ClearData()
 	{
+		AudioManager.audioManager.PlayClick();
 		PlayerPrefs.DeleteAll();
 	}
 }

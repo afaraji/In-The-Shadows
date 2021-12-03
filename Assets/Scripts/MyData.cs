@@ -10,6 +10,7 @@ public static class MyData
     public static bool isGamePaused = false;
     public static float rotationSpeed = 1000f;
     public static float moveSpeed = 100f;
+    public static int lastLevelUnlocked;
 
    
     
