@@ -6236,6 +6236,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: _puzzle_globe-earth Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 9092027877345713084, guid: ab7197fb466f747d99f021327bc3201a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1eee341d2919444aba41ea49ab1ee792, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab7197fb466f747d99f021327bc3201a, type: 3}
 --- !u!4 &1373444611 stripped
@@ -7954,6 +7959,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1259611369}
     m_Modifications:
+    - target: {fileID: 400940651236082393, guid: a29e57375009d412db34e740094f1942,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1eee341d2919444aba41ea49ab1ee792, type: 2}
     - target: {fileID: 6173711364843281579, guid: a29e57375009d412db34e740094f1942,
         type: 3}
       propertyPath: m_Name

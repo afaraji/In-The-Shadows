@@ -3155,7 +3155,7 @@ MonoBehaviour:
   - {fileID: 40651617}
   - {fileID: 516839504}
   imageChangeScale: {fileID: 1453937190}
-  difficulty: 2.5
+  difficulty: 3
   totalProgress: 0
   starsOnSolved: {fileID: 1862968380}
   stars:
@@ -10816,6 +10816,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: _Plane_part4
       objectReference: {fileID: 0}
+    - target: {fileID: 3643285983892942474, guid: 09dd08be9b4c04b86acabdd0e973bc2e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1eee341d2919444aba41ea49ab1ee792, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09dd08be9b4c04b86acabdd0e973bc2e, type: 3}
 --- !u!1001 &3181626532739285742
@@ -10885,6 +10890,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4316416399224865701, guid: 0217d80bc25594b84bed57fd1ed4601f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1eee341d2919444aba41ea49ab1ee792, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0217d80bc25594b84bed57fd1ed4601f, type: 3}
 --- !u!1001 &4518878962831758428
@@ -10894,6 +10904,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 872437676}
     m_Modifications:
+    - target: {fileID: 2988100797810798451, guid: 8175625d8d93b41ce94be838fce2457c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1eee341d2919444aba41ea49ab1ee792, type: 2}
     - target: {fileID: 3636412230506729126, guid: 8175625d8d93b41ce94be838fce2457c,
         type: 3}
       propertyPath: m_Name
@@ -10963,6 +10978,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 40651619}
     m_Modifications:
+    - target: {fileID: 4896303795267107682, guid: d07eec4821d554d20bb1a5cba791203f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1eee341d2919444aba41ea49ab1ee792, type: 2}
     - target: {fileID: 6032578849858191373, guid: d07eec4821d554d20bb1a5cba791203f,
         type: 3}
       propertyPath: m_LocalPosition.x

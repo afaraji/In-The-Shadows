@@ -10584,6 +10584,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: _camel-low-poly
       objectReference: {fileID: 0}
+    - target: {fileID: 3602485631143284094, guid: eea091d70de344c97b3495b6ca6fc303,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1eee341d2919444aba41ea49ab1ee792, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea091d70de344c97b3495b6ca6fc303, type: 3}
 --- !u!4 &7195348105595121071 stripped
